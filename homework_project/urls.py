@@ -20,9 +20,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('weather/', views.index),
     path('joy/', views.joy),
-    path('sad/', views.sad)
-
-
+    path('sad/', views.sad),
+    path('director/', views.director_list_view),
+    path('director/<int:id>', views.director_detail_view),
+    path('movie/', views.movie_list_view),
+    path('movie/<int:id>', views.movie_detail_view),
+    path('review/', views.review_list_view),
+    path('review/<int:id>', views.review_detail_view),
 
 
 ]
