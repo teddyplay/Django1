@@ -16,8 +16,8 @@ class Director(models.Model):
 class Movie(models.Model):
     title = models.CharField(max_length=30, verbose_name='Название')
     diskription = models.TextField(verbose_name='Описание')
-    director = models.ForeignKey(Director, on_delete=models.PROTECT,null=True)
-
+    director = models.ForeignKey(Director, on_delete=models.PROTECT, null=True)
+    image = models.ImageField(verbose_name="Картинка", null=True)
 
     class Meta:
         verbose_name = 'Кино'

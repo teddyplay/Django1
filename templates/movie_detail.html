@@ -1,20 +1,55 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Detail</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css/' %}">
 </head>
 <body>
-<h5>{{ movie.title }}</h5>
-<h5>{{ movie.diskription }}</h5>
-<h5>{{ Comments }}</h5>
+<style>
+    body {
+        background-color: #FFE53B;
+        background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
 
-{% for i in review %}
-    <p>{{ i.text }}</p>
-    <p>{{ i.movie }}</p>
-{% endfor %}
-{% for i in director%}
-    <p>{{ i.name }}</p>
-{% endfor %}
+    .shows__img {
+        height: 250px;
+        object-fit: fill;
+    }
+
+    .shows__container {
+        height: 300px;
+        margin: 40px;
+        padding: 20px;
+    }
+    .gy-5{
+        height: 30px;
+    }
+    .col-3{
+        height: 400px;
+    }
+</style>
+
+
+
+<div class="container shows__container">
+    <div class="row gy-5">
+        {% for show in context %}
+            <div class="col-3">
+                <div class="card">
+                    <img src="{{ show.image.url }}" class="card-img-top shows__img" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ show.title }}</h2>
+                        <a href="/movie/{{ show.id }}/" class="btn btn-primary">Go detail</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 </body>
 </html>
+

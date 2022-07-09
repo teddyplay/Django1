@@ -1,12 +1,47 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Review</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css/' %}">
 </head>
 <body>
-{% for i in review %}
-    <h5>{{ i.text }}</h5>
-{% endfor %}
+<style>
+    body {
+        background-color: #FFE53B;
+        background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+
+
+    .shows__container {
+        height: 300px;
+        margin: 40px;
+        padding: 20px;
+    }
+    .gy-5{
+        height: 30px;
+    }
+    .col-3{
+        height: 120px;
+    }
+</style>
+
+
+
+<div class="container shows__container">
+    <div class="row gy-5">
+        {% for show in context %}
+            <div class="col-3">
+                <div class="card">
+                    <h2 class="card-title">{{ show.text }}</h2>
+                    <a href="/director/{{ show.id }}/" class="btn btn-primary">Go detail</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 </body>
 </html>

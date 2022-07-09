@@ -1,10 +1,38 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Detail</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css/' %}">
+
 </head>
 <body>
-<h5>{{ director.name }}</h5>
+<style>
+
+    .show__card__body {
+        background-color: #FFE53B;
+        background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+
+    body {
+        background-color: #FFE53B;
+        background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+</style>
+
+<div class="container">
+    <div class="card">
+
+        <div class="card-body show__card__body">
+            <h5>{{ context.name }}</h5>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
